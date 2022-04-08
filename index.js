@@ -1,5 +1,5 @@
-let player1 = prompt("Whats Your Name???");
-let player2 = prompt("Whats Your Opponents Name???");
+let player1 = "Player1";
+let player2 = "Player2";
 
 function changeDice() {
     let dice1 = Math.floor(Math.random() * 6) + 1;
@@ -13,24 +13,15 @@ function changeDice() {
         .querySelector(".img2")
         .setAttribute("src", "images/dice" + dice2 + ".png");
     if (dice1 > dice2) {
-        document.querySelector(".big-header").innerHTML = player1 + " beat " + player2 + "'s ass so bad";
+        document.querySelector(".big-header").innerHTML = player1 + " beat " + player2;
     } else if (dice2 > dice1) {
-        document.querySelector(".big-header").innerHTML = player2 + " kicked " + player1 + "'s ass";
+        document.querySelector(".big-header").innerHTML = player2 + " beat " + player1;
     } else {
         document.querySelector(".big-header").innerHTML = "Boring YOu Drew";
     }
-}
-
-function changeDiceOnKey(event) {
-    switch (event.key) {
-        case "Enter":
-            changeDice();
-            break;
-        default:
-    }
+    setTimeout(function () {
+        document.querySelector(".big-header").innerHTML = "click To Play Again ";
+    }, 2000)
 }
 
 document.querySelector(".big-header").addEventListener("click", changeDice);
-document.addEventListener("keypress", function (press) {
-    changeDiceOnKey(press);
-});
