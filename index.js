@@ -1,11 +1,11 @@
-let player1 = "Player1";
-let player2 = "Player2";
+let firstPlayer = window.prompt("First Player Name ?");
+let secondPlayer = window.prompt("Second Player Name ?");
 
 function changeDice() {
     let dice1 = Math.floor(Math.random() * 6) + 1;
     let dice2 = Math.floor(Math.random() * 6) + 1;
-    document.querySelectorAll(".player-text")[0].innerHTML = player1;
-    document.querySelectorAll(".player-text")[1].innerHTML = player2;
+    document.querySelectorAll(".player-text")[0].innerHTML = firstPlayer;
+    document.querySelectorAll(".player-text")[1].innerHTML = secondPlayer;
     document
         .querySelector(".img1")
         .setAttribute("src", "images/dice" + dice1 + ".png");
@@ -13,9 +13,9 @@ function changeDice() {
         .querySelector(".img2")
         .setAttribute("src", "images/dice" + dice2 + ".png");
     if (dice1 > dice2) {
-        document.querySelector(".big-header").innerHTML = player1 + " beat " + player2;
+        document.querySelector(".big-header").innerHTML = firstPlayer + " beat " + secondPlayer;
     } else if (dice2 > dice1) {
-        document.querySelector(".big-header").innerHTML = player2 + " beat " + player1;
+        document.querySelector(".big-header").innerHTML = firstPlayer + " beat " + secondPlayer;
     } else {
         document.querySelector(".big-header").innerHTML = "Boring YOu Drew";
     }
